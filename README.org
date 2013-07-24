@@ -27,13 +27,19 @@ we go...
 #+RESULTS:
 [[file:demo.png]]
 
-** Requirements
-
-You must have [[http://phantomjs.org/][PhantomJS]] installed and available on your =PATH=.
-
 ** Installation
 
-Then, If you're hooked up to [[http://melpa.milkbox.net/][MELPA]]:
+*** Prerequisite
+You must have [[http://phantomjs.org/][PhantomJS]] installed on your machine and available on the Emacs env path. I do something like this:
+
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'exec-path "/opt/local/bin")
+  (setenv "PATH" (mapconcat 'identity exec-path ":"))
+#+END_SRC
+
+*** Then
+
+If you're hooked up to [[http://melpa.milkbox.net/][MELPA]]:
 
 #+BEGIN_EXAMPLE
 M-x package-refresh-contents
