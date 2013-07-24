@@ -1,9 +1,11 @@
 * OB-Phantomjs
 
-#+BEGIN_SRC phantomjs
-<input type="text" placeholder="Type something here..."/>
+#+BEGIN_SRC phantomjs :out thing.png
+<h1>Test</h1>
+<div>KAK</div>
+<input type="phone" style="float: right"/>
 #+END_SRC
 
 #+RESULTS:
-: /Users/kris/.emacs.d/kaj/ob-phantomjs/test.png
+[[file:thing.png]]
 

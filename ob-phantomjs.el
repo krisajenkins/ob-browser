@@ -29,14 +29,21 @@
 
 ;;;###autoload
 (defun org-babel-execute:phantomjs (body params)
-  (let* ((file "/Users/kris/.emacs.d/kaj/ob-phantomjs/ob-phantomjs.js")
-	 (out "/Users/kris/.emacs.d/kaj/ob-phantomjs/test.png")
-	 (cmd (format "phantomjs %s %s" file out)))
+  "Execute a phantomjs block."
+  (let* ((driving-script "ob-phantomjs.js")
+	 (out (or (cdr (assoc :out params))
+	 	  (error "phantomjs code blocks require a :out header argument")))
+	 (cmd (format "phantomjs %s %s" driving-script out)))
     (org-babel-eval cmd body)
     out))
 
 ;;;###autoload
+(add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images)
+
+;;;###autoload
 (eval-after-load "org"
- '(add-to-list 'org-src-lang-modes '("phantomjs" . html)))
+  '(add-to-list 'org-src-lang-modes '("phantomjs" . html)))
 
 (provide 'ob-phantomjs)
+
+;;; ob-phantomjs.el ends here

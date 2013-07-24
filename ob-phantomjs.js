@@ -11,14 +11,14 @@ try {
 	console.log(message);
     };
 
-    page.content = system.stdin.readLine();
+    page.content = system.stdin.read();
 
     page.evaluate(function () {
 	document.bgColor = 'white';
     });
 
     page.clipRect = page.evaluate(function () {
-	return document.documentElement.getBoundingClientRect();
+    	return document.documentElement.getBoundingClientRect();
     });
 
     page.render(filename);
