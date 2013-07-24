@@ -6,7 +6,11 @@ var system = require('system');
 var filename = system.args[1];
 
 var page = require('webpage').create();
+
 page.content = system.stdin.read();
+page.evaluate(function () {
+    document.bgColor = document.bgColor || 'white';
+});
 page.onConsoleMessage = console.log;
 
 page.onLoadFinished = function (status) {
