@@ -1,11 +1,45 @@
-* OB-Phantomjs
+* ob-phantomjs
+  
+Do you want to write HTML blocks in org-mode and have them magically
+rendered as screenshots? Yes, I thought so. Me too.
 
-#+BEGIN_SRC phantomjs :out thing.png
-<h1>Test</h1>
-<div>KAK</div>
-<input type="phone" style="float: right"/>
+#+BEGIN_SRC phantomjs :out demo.png :exports both
+  <!DOCTYPE html>
+  <html>
+      <head>
+          <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet" media="screen">
+      </head>
+      <body>
+          <div class="row">
+              <div class="span6 offset1">
+                  <h1>Rendered PNG</h1>
+                  
+                  <button class="btn btn-primary">You Can't Press This</button>
+              </div>
+          </div>
+      </body>
+  </html>
 #+END_SRC
 
 #+RESULTS:
-[[file:thing.png]]
+[[file:demo.png]]
 
+** Requirements
+
+You must have [[http://phantomjs.org/][PhantomJS]] installed and available on your =PATH=.
+
+** Installation
+
+Then, If you're hooked up to [[http://melpa.milkbox.net/][MELPA]]:
+
+#+BEGIN_EXAMPLE
+M-x package-refresh-contents
+M-x package-install RET ob-phantomjs
+#+END_EXAMPLE
+
+Alternatively just grab the single =ob-phantomjs.el= file and install that in your preferred way.
+
+** TODO Status [0%]
+
+- [ ] Supply image size parameters?
+- [ ] Supply a list of JS libraries to inject?

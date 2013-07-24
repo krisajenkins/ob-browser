@@ -2,28 +2,19 @@
 /*global $: true, phantom: true*/
 "use strict";
 
-var page = require('webpage').create();
 var system = require('system');
 var filename = system.args[1];
 
-try {
-    page.onConsoleMessage = function (message) {
-	console.log(message);
-    };
+var page = require('webpage').create();
+page.content = system.stdin.read();
+page.onConsoleMessage = console.log;
 
-    page.content = system.stdin.read();
-
-    page.evaluate(function () {
-	document.bgColor = 'white';
-    });
-
+page.onLoadFinished = function (status) {
     page.clipRect = page.evaluate(function () {
-    	return document.documentElement.getBoundingClientRect();
+	return document.documentElement.getBoundingClientRect();
     });
 
     page.render(filename);
-} finally {
     page.close();
-}
-
-phantom.exit();
+    phantom.exit();
+};
