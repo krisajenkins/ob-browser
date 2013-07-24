@@ -1,7 +1,10 @@
 * ob-phantomjs
   
-Do you want to write HTML blocks in org-mode and have them magically
-rendered as screenshots? Yes, I thought so. Me too.
+Do you want to write HTML blocks in org-mode and have them
+automagically rendered as screenshots? Yes, I thought so. Me too. Here
+we go...
+
+** Demo
 
 #+BEGIN_SRC phantomjs :out demo.png :exports both
   <!DOCTYPE html>
@@ -38,3 +41,11 @@ M-x package-install RET ob-phantomjs
 #+END_EXAMPLE
 
 Alternatively just grab the single =ob-phantomjs.el= file and install that in your preferred way.
+
+** Options
+
+Each block supports the following arguments:
+
+| Argument | Description      | Example                             |
+|----------+------------------+-------------------------------------|
+| =:out=     | Output filename. | =#+BEGIN_SRC phantomjs :out demo.png= |
