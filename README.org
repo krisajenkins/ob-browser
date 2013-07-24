@@ -38,8 +38,3 @@ M-x package-install RET ob-phantomjs
 #+END_EXAMPLE
 
 Alternatively just grab the single =ob-phantomjs.el= file and install that in your preferred way.
-
-** TODO Status [0%]
-
-- [ ] Supply image size parameters?
-- [ ] Supply a list of JS libraries to inject?
