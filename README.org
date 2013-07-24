@@ -1,4 +1,4 @@
-* ob-phantomjs
+* Org Babel Browser - Render HTML in org-mode
   
 Do you want to write HTML blocks in org-mode and have them
 automagically rendered as screenshots? Yes, I thought so. Me too. Here
@@ -6,7 +6,7 @@ we go...
 
 ** Demo
 
-#+BEGIN_SRC phantomjs :out demo.png :exports both
+#+BEGIN_SRC browser :out demo.png :exports both
   <!DOCTYPE html>
   <html>
       <head>
@@ -32,10 +32,16 @@ we go...
 *** Prerequisite
 You must have [[http://phantomjs.org/][PhantomJS]] installed on your machine and available on the Emacs env path. I do something like this:
 
+#+BEGIN_SRC sh
+sudo port install phantomjs
+#+END_SRC
+
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'exec-path "/opt/local/bin")
   (setenv "PATH" (mapconcat 'identity exec-path ":"))
 #+END_SRC
+
+YMMV.
 
 *** Then
 
@@ -43,10 +49,8 @@ If you're hooked up to [[http://melpa.milkbox.net/][MELPA]]:
 
 #+BEGIN_EXAMPLE
 M-x package-refresh-contents
-M-x package-install RET ob-phantomjs
+M-x package-install RET ob-browser
 #+END_EXAMPLE
-
-Alternatively just grab the single =ob-phantomjs.el= file and install that in your preferred way.
 
 ** Options
 
@@ -54,4 +58,12 @@ Each block supports the following arguments:
 
 | Argument | Description      | Example                             |
 |----------+------------------+-------------------------------------|
-| =:out=     | Output filename. | =#+BEGIN_SRC phantomjs :out demo.png= |
+| =:out=     | Output filename. | =#+BEGIN_SRC browser :out demo.png= |
+
+The =:out= argument is mandatory. The file format will be chosen
+automatically based on the extension, and may be any of:
+
+- =.png=
+- =.gif=
+- =.jpg=
+- =.pdf=
