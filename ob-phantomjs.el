@@ -17,6 +17,8 @@
 (require 'org)
 (require 'ob)
 
+(defvar ob-phantomjs-base-dir (file-name-directory load-file-name))
+
 (defgroup ob-phantomjs nil
   "Render HTML in org-mode blocks."
   :group 'org)
@@ -30,7 +32,7 @@
 ;;;###autoload
 (defun org-babel-execute:phantomjs (body params)
   "Execute a phantomjs block."
-  (let* ((driving-script "ob-phantomjs.js")
+  (let* ((driving-script (concat ob-phantomjs-base-dir "ob-phantomjs.js"))
 	 (out (or (cdr (assoc :out params))
 	 	  (error "phantomjs code blocks require a :out header argument")))
 	 (cmd (format "phantomjs %s %s" driving-script out)))
