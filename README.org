@@ -1,0 +1,9 @@
+* OB-Phantomjs
+
+#+BEGIN_SRC phantomjs
+<input type="text" placeholder="Type something here..."/>
+#+END_SRC
+
+#+RESULTS:
+: /Users/kris/.emacs.d/kaj/ob-phantomjs/test.png
+
