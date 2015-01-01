@@ -1,4 +1,4 @@
-;;; ob-browser.el --- Translation of text blocks in org-mode.
+;;; ob-browser.el --- Render HTML in org-mode blocks.
 ;; Copyright 2013 Kris Jenkins
 
 ;; Author: Kris Jenkins <krisajenkins@gmail.com>
